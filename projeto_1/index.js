@@ -3,5 +3,23 @@ const fn = require('./funcoes')
 
 const caminho = path.join(__dirname, '..', 'dados', 'legendas')
 
-const arquivos = fn.letDiretorio(caminho)
-console.log(arquivos)
+const simbolos = [
+    '.', '?', '-', ',', '"', '♪', '_', '<i>', '</i>', '\r', '[', ']', '(', ')'
+]
+
+fn.letDiretorio(caminho)
+    .then(fn.elementosTerminadosCom('.srt'))
+    .then(fn.lerArquivos)
+    .then(fn.mesclarElementos)
+    .then(fn.separarTextoPor('\n'))
+    .then(fn.removerElementosSeVazio)
+    .then(fn.removerElementosSeIncluir('-->'))
+    .then(fn.removerElementosSeApenasNumeros)
+    .then(fn.removerSimbolos(simbolos))
+    .then(fn.mesclarElementos)
+    .then(fn.separarTextoPor(' '))
+    .then(fn.removerElementosSeVazio)
+    .then(fn.removerElementosSeApenasNumeros)
+    .then(fn.agruparElementos)
+    .then(fn.ordenarPorAtribNumerico('qtde', 'desc'))
+    .then(console.log)
