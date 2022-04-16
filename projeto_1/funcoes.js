@@ -1,6 +1,19 @@
 const fs = require('fs')
 const path = require('path')
 
+function composicao(...fns) {
+    return function(valor) {
+
+        return fns.reduce(async (acc, fn) => {
+            if(Promise.resolve(acc) === acc) {
+                return fn(await acc)
+            } else {
+                return fn(acc)
+            }
+        }, valor)
+    }
+}
+
 function letDiretorio(caminho) {
     return new Promise((resolve, reject) => {
         try {
@@ -85,12 +98,13 @@ function ordenarPorAtribNumerico(attr, ordem = 'asc') {
     return function(array) {
         const asc = (o1, o2) => o1[attr] - o2[attr]
         const desc = (o1, o2) => o2[attr] - o1[attr]
-        return array.sort(ordem === 'asc' ? asc : desc)
+        return [...array].sort(ordem === 'asc' ? asc : desc)
     }
 }
 
 module.exports = {
     // blabla: letDiretorio,
+    composicao,
     letDiretorio,
     elementosTerminadosCom,
     lerArquivos,
