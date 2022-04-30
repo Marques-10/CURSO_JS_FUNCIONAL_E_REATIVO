@@ -1,0 +1,24 @@
+{
+  "name": "js_funcional_e_reativo",
+  "version": "1.0.0",
+  "description": "<ul>\r     <li>Introdução</li>\r     <li>Funções</li>\r     <li>Projeto #01 - Palavras Mais Usadas</li>\r     <li>Princípios da Programação Funcional</li>\r     <li>Programação Reativa com RxJS</li>\r     <li>Projeto #02 - Migrando Código para RxJS</li>\r     <li>Lambda Calculus</li>\r     <li>Conclusão</li>\r </ul>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marques-10/CURSO_JS_FUNCIONAL_E_REATIVO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marques-10/CURSO_JS_FUNCIONAL_E_REATIVO/issues"
+  },
+  "homepage": "https://github.com/Marques-10/CURSO_JS_FUNCIONAL_E_REATIVO#readme",
+  "dependencies": {
+    "rxjs": "6.0.0",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
